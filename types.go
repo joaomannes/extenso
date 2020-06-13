@@ -37,20 +37,20 @@ var dezenas = map[int]string{
 	9: "noventa"}
 
 var centenas = map[int]palavra{
-	1: palavra{"cem", "cento"},
-	2: palavra{"duzentos", "duzentos"},
-	3: palavra{"trezentos", "trezentos"},
-	4: palavra{"quatrocentos", "quatrocentos"},
-	5: palavra{"quinhentos", "quinhentos"},
-	6: palavra{"seiscentos", "seiscentos"},
-	7: palavra{"setecentos", "setecentos"},
-	8: palavra{"oitocentos", "oitocentos"},
-	9: palavra{"novecentos", "novecentos"}}
+	1: {"cem", "cento"},
+	2: {"duzentos", "duzentos"},
+	3: {"trezentos", "trezentos"},
+	4: {"quatrocentos", "quatrocentos"},
+	5: {"quinhentos", "quinhentos"},
+	6: {"seiscentos", "seiscentos"},
+	7: {"setecentos", "setecentos"},
+	8: {"oitocentos", "oitocentos"},
+	9: {"novecentos", "novecentos"}}
 
 var milhares = []palavra{
-	palavra{"", ""},
-	palavra{"mil", "mil"},
-	palavra{"milhão", "milhões"},
-	palavra{"bilhão", "bilhões"},
-	palavra{"trilhão", "trilhões"},
-	palavra{"quatrilhão", "quatrilhões"}}
+	{"", ""},
+	{"mil", "mil"},
+	{"milhão", "milhões"},
+	{"bilhão", "bilhões"},
+	{"trilhão", "trilhões"},
+	{"quatrilhão", "quatrilhões"}}

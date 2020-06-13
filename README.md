@@ -1,6 +1,8 @@
 # Extenso
 Escreve números por extenso com GoLang
 
+![Go](https://github.com/joaomannes/extenso/workflows/Go/badge.svg)
+
 ## Usage
 
 ```go

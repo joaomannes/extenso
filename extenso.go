@@ -1,9 +1,9 @@
 package extenso
 
 import (
-	"math"
-	"strconv",
 	"errors"
+	"math"
+	"strconv"
 )
 
 const numeroMaximo int64 = 999999999999999999
@@ -13,7 +13,7 @@ const tamanhoMilhar int = 3
 func From(numero int64) (string, error) {
 
 	var err = verificaEstouroNumeroMaximo(numero)
-	if (err != nil) {
+	if err != nil {
 		return "", errors.New(err)
 	}
 

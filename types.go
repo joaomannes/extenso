@@ -1,4 +1,4 @@
-package extenso
+package main
 
 type palavra struct {
 	singular string

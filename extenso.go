@@ -1,7 +1,6 @@
-package extenso
+package main
 
 import (
-	"extenso/utils"
 	"log"
 	"math"
 	"strconv"
@@ -26,7 +25,7 @@ func Extenso(numero int64) string {
 
 	var ternarios = int(math.Ceil(float64(tamanho) / float64(tamanhoMilhar)))
 
-	numeroString = utils.LeftPad(numeroString, "0", ternarios*3)
+	numeroString = LeftPad(numeroString, "0", ternarios*3)
 
 	for i := 0; i < ternarios; i++ {
 		var parteNumero, _ = strconv.ParseInt(numeroString[i*3:3+i*3], 10, 0)

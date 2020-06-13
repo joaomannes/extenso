@@ -1,4 +1,4 @@
-package utils
+package main
 
 //LeftPad Preenche uma string à esquerda
 func LeftPad(str, pad string, length int) string {

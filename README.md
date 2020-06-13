@@ -16,7 +16,7 @@ import (
 )
 
 func main() {
-	fmt.Println(extenso.Extenso(1234))
+	fmt.Println(extenso.From(1234))
 }
 ```
 

@@ -9,8 +9,8 @@ import (
 const numeroMaximo int64 = 999999999999999999
 const tamanhoMilhar int = 3
 
-//Extenso escreve um número por extenso
-func Extenso(numero int64) string {
+//From escreve um número por extenso
+func From(numero int64) string {
 
 	verificaEstouroNumeroMaximo(numero)
 

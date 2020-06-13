@@ -1,4 +1,4 @@
-package extenso_go
+package extenso
 
 import (
 	"log"

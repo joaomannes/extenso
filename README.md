@@ -1,2 +1,2 @@
-# extenso_go
+# extenso
 Escreve números por extenso com GoLang

@@ -1,7 +1,7 @@
 package extenso
 
-//LeftPad Preenche uma string à esquerda
-func LeftPad(str, pad string, length int) string {
+//leftPad Preenche uma string à esquerda
+func leftPad(str, pad string, length int) string {
 	for {
 		if len(str) < length {
 			str = pad + str
@@ -11,8 +11,8 @@ func LeftPad(str, pad string, length int) string {
 	}
 }
 
-//RightPad Preenche uma string à direita
-func RightPad(str, pad string, length int) string {
+//rightPad Preenche uma string à direita
+func rightPad(str, pad string, length int) string {
 	for {
 		if len(str) < length {
 			str += pad

@@ -25,7 +25,7 @@ go get github.com/joaomannes/extenso
 
 ## License
 
-MIT
+[MIT](https://github.com/joaomannes/extenso/blob/master/LICENSE)
 
 ## Author
 

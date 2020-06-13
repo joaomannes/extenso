@@ -1,4 +1,4 @@
-package main
+package extenso_go
 
 //LeftPad Preenche uma string à esquerda
 func LeftPad(str, pad string, length int) string {

@@ -13,7 +13,7 @@ const tamanhoMilhar int = 3
 func From(numero int64) (string, error) {
 
 	var err = verificaEstouroNumeroMaximo(numero)
-	if err != nil {
+	if err != "" {
 		return "", errors.New(err)
 	}
 
@@ -96,6 +96,6 @@ func verificaEstouroNumeroMaximo(number int64) string {
 	if number > numeroMaximo {
 		return "Número informado maior que o máximo permitido"
 	} else {
-		return nil
+		return ""
 	}
 }

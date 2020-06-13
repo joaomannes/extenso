@@ -1,21 +1,24 @@
 package extenso
 
 import (
-	"log"
 	"math"
-	"strconv"
+	"strconv",
+	"errors"
 )
 
 const numeroMaximo int64 = 999999999999999999
 const tamanhoMilhar int = 3
 
 //From escreve um número por extenso
-func From(numero int64) string {
+func From(numero int64) (string, error) {
 
-	verificaEstouroNumeroMaximo(numero)
+	var err = verificaEstouroNumeroMaximo(numero)
+	if (err != nil) {
+		return "", errors.New(err)
+	}
 
 	if numero == 0 {
-		return "zero"
+		return "zero", nil
 	}
 
 	numeroExtenso := ""
@@ -86,11 +89,13 @@ func From(numero int64) string {
 
 	}
 
-	return numeroExtenso
+	return numeroExtenso, nil
 }
 
-func verificaEstouroNumeroMaximo(number int64) {
+func verificaEstouroNumeroMaximo(number int64) string {
 	if number > numeroMaximo {
-		log.Fatal("Número informado maior que o máximo permitido")
+		return "Número informado maior que o máximo permitido"
+	} else {
+		return nil
 	}
 }

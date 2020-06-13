@@ -1,6 +1,7 @@
 package extenso
 
 import (
+	"extenso/utils"
 	"log"
 	"math"
 	"strconv"
@@ -25,7 +26,7 @@ func Extenso(numero int64) string {
 
 	var ternarios = int(math.Ceil(float64(tamanho) / float64(tamanhoMilhar)))
 
-	numeroString = leftPad(numeroString, "0", ternarios*3)
+	numeroString = utils.LeftPad(numeroString, "0", ternarios*3)
 
 	for i := 0; i < ternarios; i++ {
 		var parteNumero, _ = strconv.ParseInt(numeroString[i*3:3+i*3], 10, 0)
@@ -92,25 +93,5 @@ func Extenso(numero int64) string {
 func verificaEstouroNumeroMaximo(number int64) {
 	if number > numeroMaximo {
 		log.Fatal("Número informado maior que o máximo permitido")
-	}
-}
-
-func leftPad(str, pad string, length int) string {
-	for {
-		if len(str) < length {
-			str = pad + str
-		} else {
-			return str
-		}
-	}
-}
-
-func rightPad(str, pad string, length int) string {
-	for {
-		if len(str) < length {
-			str += pad
-		} else {
-			return str
-		}
 	}
 }

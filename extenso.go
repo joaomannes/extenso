@@ -6,23 +6,28 @@ import (
 	"strconv"
 )
 
-const numeroMaximo int64 = 999999999999999999
+const nMax int64 = 999999999999999999
 const tamanhoMilhar int = 3
 
 //From escreve um número por extenso
-func From(numero int64) (string, error) {
+func From(n int64) (string, error) {
 
-	var err = verificaEstouroNumeroMaximo(numero)
+	var err = verificaEstouroNumeroMaximo(n)
 	if err != "" {
 		return "", errors.New(err)
 	}
 
-	if numero == 0 {
+	err = verificaNumeroNegativo(n)
+	if err != "" {
+		return "", errors.New(err)
+	}
+
+	if n == 0 {
 		return "zero", nil
 	}
 
-	numeroExtenso := ""
-	var numeroString string = strconv.FormatInt(numero, 10)
+	extenso := ""
+	var numeroString string = strconv.FormatInt(n, 10)
 
 	tamanho := len(numeroString)
 
@@ -44,57 +49,65 @@ func From(numero int64) (string, error) {
 		unidade := int(parteNumero - int64(centena*100) - int64(dezena*10))
 
 		if centena > 0 {
-			if dezena == 0 && unidade == 0 && numeroExtenso != "" {
-				numeroExtenso += " e "
-			} else if numeroExtenso != "" {
-				numeroExtenso += ", "
+			if dezena == 0 && unidade == 0 && extenso != "" {
+				extenso += " e "
+			} else if extenso != "" {
+				extenso += ", "
 			}
 			if centena == 1 {
 				if dezena > 0 || unidade > 0 {
-					numeroExtenso += centenas[centena].plural
+					extenso += centenas[centena].plural
 				} else {
-					numeroExtenso += centenas[centena].singular
+					extenso += centenas[centena].singular
 				}
 			} else {
-				numeroExtenso += centenas[centena].singular
+				extenso += centenas[centena].singular
 			}
 		}
 
 		if dezena > 0 {
-			if numeroExtenso != "" {
-				numeroExtenso += " e "
+			if extenso != "" {
+				extenso += " e "
 			}
 
 			if dezena == 1 {
 				dezena = 10 + unidade
 				unidade = 0
-				numeroExtenso += unidades[dezena]
+				extenso += unidades[dezena]
 			} else {
-				numeroExtenso += dezenas[dezena]
+				extenso += dezenas[dezena]
 			}
 		}
 
 		if unidade > 0 {
-			if numeroExtenso != "" {
-				numeroExtenso += " e "
+			if extenso != "" {
+				extenso += " e "
 			}
-			numeroExtenso += unidades[unidade]
+			extenso += unidades[unidade]
 		}
 
 		if parteNumero > 1 {
-			numeroExtenso += " " + milhares[ternarios-i-1].plural
+			extenso += " " + milhares[ternarios-i-1].plural
 		} else {
-			numeroExtenso += " " + milhares[ternarios-i-1].singular
+			extenso += " " + milhares[ternarios-i-1].singular
 		}
 
 	}
 
-	return numeroExtenso, nil
+	return extenso, nil
 }
 
-func verificaEstouroNumeroMaximo(number int64) string {
-	if number > numeroMaximo {
+func verificaEstouroNumeroMaximo(n int64) string {
+	if n > nMax {
 		return "Número informado maior que o máximo permitido"
+	} else {
+		return ""
+	}
+}
+
+func verificaNumeroNegativo(n int64) string {
+	if n < 0 {
+		return "Não é possível escrever números negativos"
 	} else {
 		return ""
 	}
